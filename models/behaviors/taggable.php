@@ -128,7 +128,8 @@ class TaggableBehavior extends ModelBehavior {
 						'Tag.identifier',
 						'Tag.keyname',
 						'Tag.name',
-						'Tag.id')));
+						'Tag.id'))
+                                        );
 
 				if (!empty($existingTags)) {
 					foreach ($existingTags as $existing) {
