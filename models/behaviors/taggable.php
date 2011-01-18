@@ -96,6 +96,18 @@ class TaggableBehavior extends ModelBehavior {
  * @return array
  */
 	public function saveTags(Model $Model, $string = null, $foreignKey = null, $update = true) {
+            
+            $userId = null;
+            
+            $savedData = $Model->data[$Model->alias];
+            
+            if(!$savedData('user_id')){
+                return false;
+            } else {
+                echo $userId = $savedData('user_id');
+            }
+            exit;
+           
 		if (is_string($string) && !empty($string) && (!empty($foreignKey) || $foreignKey === false)) {
 			$tagClass = $this->settings[$Model->alias]['tagAlias'];
 			$tagModel = $Model->Tag;
@@ -123,6 +135,7 @@ class TaggableBehavior extends ModelBehavior {
 				$existingTags = $tagModel->find('all', array(
 					'contain' => array(),
 					'conditions' => array(
+//                                                'Tag.user_id' => ,
 						'Tag.keyname' => Set::extract($tags, '{n}.keyname')),
 					'fields' => array(
 						'Tag.identifier',
