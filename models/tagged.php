@@ -76,7 +76,8 @@ class Tagged extends TagsAppModel {
 				'contain' => 'Tag',
 				'conditions' => array(),
 				'fields' => 'Tag.*, Tagged.tag_id, COUNT(*) AS occurrence',
-				'group' => 'Tagged.tag_id');
+				'group' => 'Tagged.tag_id'
+                            );
 
 			foreach ($query as $key => $value) {
 				if (!empty($value)) {
